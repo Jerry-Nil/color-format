@@ -1,33 +1,36 @@
 {
-	"main":"./lib/format.js",
-	"name":"color-format",
-	"description":"color format for log",
-	"keywords": [
-		"color",
-		"format",
-		"log"
-	],
-	"author":{
-		"name":"Jerry Chang",
-		"email":"jerry.hz.china@gmail.com"
-	},
-	"contributors":[{
-		"name":"Jerry Chang",
-		"email":"jerry.hz.china@gmail.com"
-	}],
-	"version":"1.0.0",
-	"directories":{
-		"test":"./test"
-	},
-	"engines":{
-		"node":">=0.4.2"
-	},
-	"repository": {
-		"type": "git",
-		"url": "https://github.com/Jerry-Nil/color-format.git"
-	},
-	"bugs":"https://github.com/Jerry-Nil/color-format/issues",
-	"dependencies":{
-		"optimist":">=0.3.5"
-	}
+  "main": "./lib/format.js",
+  "name": "color-format",
+  "description": "color format for log",
+  "keywords": [
+    "color",
+    "format",
+    "log"
+  ],
+  "author": "Jerry Chang <jerry.hz.china@gmail.com>",
+  "contributors": [
+    "Jerry Chang <jerry.hz.china@gmail.com>"
+  ],
+  "version": "1.0.0",
+  "directories": {
+    "test": "test"
+  },
+  "engines": {
+    "node": ">=0.4.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Jerry-Nil/color-format.git"
+  },
+  "bugs": "https://github.com/Jerry-Nil/color-format/issues",
+  "dependencies": {
+    "optimist": ">=0.3.5"
+  },
+  "readmeFilename": "README.md",
+  "gitHead": "724ee3cfa8d13a95c6d0a058ef81cc5009a97b25",
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "license": "MIT"
 }
