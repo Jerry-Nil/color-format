@@ -138,5 +138,5 @@ else{
 		eft = null;
 	}
 	
-	log(f(str,{fgc: 'red',bgc: bgc,eft: eft}));
+	log(f(str,{fgc: fgc,bgc: bgc,eft: eft}));
 }
