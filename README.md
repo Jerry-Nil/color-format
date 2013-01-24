@@ -1,9 +1,8 @@
-#What's color-format
-====================
-
+What's color-format
+-------------------
 It can format output strings and make the console looks colorful.
 
-#Usage
+Usage
 ------
 ###Format strings
 format has two arguments:
@@ -50,3 +49,33 @@ Example:
 var info = require('format').info;
 info('Hello world');
 ````
+
+Command line support
+--------------------
+format
+
+	usage: format string [options]
+
+	Options
+	  -f, --foreground  Set foreground color.
+	  -b, --background  Set background color.
+	  -v, --version     Print the version number and exit.
+	  -h, --help        Print help (this message) and exit.
+	  --er              effect reset
+	  --eh              effect highlight
+	  --ed              effect dark
+	  --eu              effect underline
+	  --ef              effect flicker
+	  --ei              effect inverse
+	  --en              effect none
+
+	Colors
+	  black            [  ][  ]
+	  red              [  ][  ]
+	  green            [  ][  ]
+	  yellow           [  ][  ]
+	  blue             [  ][  ]
+	  magenta          [  ][  ]
+	  cyan             [  ][  ]
+	  white            [  ][  ]
+	

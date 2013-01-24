@@ -11,9 +11,12 @@
   "contributors": [
     "Jerry Chang <jerry.hz.china@gmail.com>"
   ],
-  "version": "1.0.0",
+  "version": "1.0.1",
   "directories": {
     "test": "test"
+  },
+  "bin":{
+    "format":"./bin/format"
   },
   "engines": {
     "node": ">=0.4.2"
