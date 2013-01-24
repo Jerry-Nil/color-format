@@ -1,21 +1,142 @@
 #!/usr/bin/env node
 
-var format = require('../lib/format').format;
+var fmt = require('../lib/format'),
+	fs = require('fs'),
+	optimist = require("optimist"),
+	f = fmt.format,
+	name = fmt.name,
+	v = fmt.version,
+	log = console.log;
+var args = optimist.usage('usage: format string [options]')
+	.wrap(80)
+    .alias('f', 'foreground')
+	.describe('f', 'Set foreground color.')
+	.alias('b', 'background')
+	.describe('b', 'Set background color.')
+	.alias('v', 'version')
+	.describe('v', 'Print the version number and exit.')
+	.alias('h', 'help')
+	.describe('h', 'Print help (this message) and exit.')
+	.boolean('er')
+	.boolean('eh')
+	.boolean('ed')
+	.boolean('eu')
+	.boolean('ef')
+	.boolean('ei')
+	.boolean('en')
+	.describe('er', 'effect reset')
+	.describe('eh', 'effect highlight')
+	.describe('ed', 'effect dark')
+	.describe('eu', 'effect underline')
+	.describe('ef', 'effect flicker')
+	.describe('ei', 'effect inverse')
+	.describe('en', 'effect none')
+	.argv;
+var argv = args._,
+	len = argv.length,
+	str = argv[0];
 
-var args = process.argv,
-	len = args.length;
-	
-if(len < 3){
-	format_help();
+var __ = function(str){
+	return f(str,{fgc: 'black',bgc: 'white'});
+};
+var _r = function(str){
+	return f(str,{fgc: 'red'});
+};
+var _b = function(str){
+	return f(str,{fgc: 'blue'});
+};
+var _g = function(str){
+	return f(str,{fgc: 'green'});
+};
+var _y = function(str){
+	return f(str,{fgc: 'yellow'});
+};
+var _m = function(str){
+	return f(str,{fgc: 'magenta'});
+};
+var _c = function(str){
+	return f(str,{fgc: 'cyan'});
+};
+var _w = function(str){
+	return str;
+};
+var usage = [
+	_b('usage') + ': ' +_r('format ') + _g('string ') + _y('[options]'),
+	'',
+	_b('Options'),
+	_y('  -f, --foreground  ') + 'Set foreground color.',
+	_y('  -b, --background  ') + 'Set background color.',
+	_y('  -v, --version     ') + 'Print the version number and exit.',
+	_y('  -h, --help        ') + 'Print help (this message) and exit.',
+	_y('  --er              ') + 'effect reset',
+	_y('  --eh              ') + 'effect ' + f('highlight',{eft:'highlight'}),
+	_y('  --ed              ') + 'effect ' + f('dark',{eft:'dark'}),
+	_y('  --eu              ') + 'effect ' + f('underline',{eft:'underline'}),
+	_y('  --ef              ') + 'effect ' + f('flicker',{eft:'flicker'}),
+	_y('  --ei              ') + 'effect ' + f('inverse',{eft:'inverse'}),
+	_y('  --en              ') + 'effect none',
+	'',
+	_b('Colors'),
+	'  ' + __('black') + '            ' + f('[  ]',{bgc:'white',fgc:'black'}) + f('[  ]'),
+	'  ' + _r('red') + '              ' + f('[  ]',{fgc:'red'}) + f('[  ]',{bgc:'red'}),
+	'  ' + _g('green') + '            ' + f('[  ]',{fgc:'green'}) + f('[  ]',{bgc:'green'}),
+	'  ' + _y('yellow') + '           ' + f('[  ]',{fgc:'yellow'}) + f('[  ]',{bgc:'yellow'}),
+	'  ' + _b('blue') + '             ' + f('[  ]',{fgc:'blue'}) + f('[  ]',{bgc:'blue'}),
+	'  ' + _m('magenta') + '          ' + f('[  ]',{fgc:'magenta'}) + f('[  ]',{bgc:'magenta'}),
+	'  ' + _c('cyan') + '             ' + f('[  ]',{fgc:'cyan'}) + f('[  ]',{bgc:'cyan'}),
+	'  ' + _w('white') + '            ' + f('[  ]') + f('[  ]',{bgc:'white',fgc:'black'}),
+];
+
+var help = function(){
+	for(var i=0;i<usage.length;i++){
+		log(usage[i]);
+	}
 }
-else if(len == 3){
-	var str = args[2];
-	console.log(str);
+
+//log(args);
+if(args.v || args.version){
+	log(_y(name) + ' ' + _g(v));
+}
+else if(len === 0 || args.h || args.help){
+	help();
 }
 else{
-	var str = args[2],
-		opt = JSON.parse(args[3]);
-	console.log(args[3]);
-	console.log(opt);
-	console.log(format(str, opt));
+	var eft = [],
+		fgc = '',
+		bgc = '';
+	if(args.er){
+		eft.push('reset');
+	}
+	if(args.eh){
+		eft.push('highlight');
+	}
+	if(args.ed){
+		eft.push('dark');
+	}
+	if(args.eu){
+		eft.push('underline');
+	}
+	if(args.ef){
+		eft.push('flicker');
+	}
+	if(args.ei){
+		eft.push('inverse');
+	}
+	if(args.en){
+		eft.push('none');
+	}
+	
+	if(args.f || args.foreground){
+		fgc = fgc + args.f;
+	}
+	
+	if(args.b || args.background){
+		bgc = bgc + args.b;
+	}
+	
+	if(eft.length === 0){
+		eft = null;
+	}
+	
+	log(f(str,{fgc: 'red',bgc: bgc,eft: eft}));
 }
