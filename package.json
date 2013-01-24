@@ -1,6 +1,6 @@
 {
 	"main":"./lib/format.js",
-	"name":"format",
+	"name":"color-format",
 	"description":"color format for log",
 	"keywords": [
 		"color",
@@ -11,12 +11,23 @@
 		"name":"Jerry Chang",
 		"email":"jerry.hz.china@gmail.com"
 	},
-	"contributors":[],
+	"contributors":[{
+		"name":"Jerry Chang",
+		"email":"jerry.hz.china@gmail.com"
+	}],
 	"version":"1.0.0",
 	"directories":{
 		"test":"./test"
 	},
 	"engines":{
 		"node":">=0.4.2"
+	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/Jerry-Nil/color-format.git"
+	},
+	"bugs":"https://github.com/Jerry-Nil/color-format/issues",
+	"dependencies":{
+		"optimist":">=0.3.5"
 	}
 }
