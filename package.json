@@ -1,0 +1,22 @@
+{
+	"main":"./lib/format.js",
+	"name":"format",
+	"description":"color format for log",
+	"keywords": [
+		"color",
+		"format",
+		"log"
+	],
+	"author":{
+		"name":"Jerry Chang",
+		"email":"jerry.hz.china@gmail.com"
+	},
+	"contributors":[],
+	"version":"1.0.0",
+	"directories":{
+		"test":"./test"
+	},
+	"engines":{
+		"node":">=0.4.2"
+	}
+}

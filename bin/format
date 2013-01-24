@@ -1,0 +1,21 @@
+#!/usr/bin/env node
+
+var format = require('../lib/format').format;
+
+var args = process.argv,
+	len = args.length;
+	
+if(len < 3){
+	format_help();
+}
+else if(len == 3){
+	var str = args[2];
+	console.log(str);
+}
+else{
+	var str = args[2],
+		opt = JSON.parse(args[3]);
+	console.log(args[3]);
+	console.log(opt);
+	console.log(format(str, opt));
+}
