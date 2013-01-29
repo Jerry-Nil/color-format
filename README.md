@@ -22,31 +22,31 @@ you could use some of `'reset'`,`'highlight'`,`'dark'`,`'underline'`,`'flicker'`
 
 Example:
 ````javascript
-var format = require('format').format;
+var format = require('color-format').format;
 console.log(format('Hello world',{fgc:'red',bgc:'yellow',eft:'underline'}));
 ````
 ###Warn function
 Example:
 ````javascript
-var warn = require('format').warn;
+var warn = require('color-format').warn;
 warn('Hello world');
 ````
 ###Error function
 Example:
 ````javascript
-var error = require('format').error;
+var error = require('color-format').error;
 error('Hello world');
 ````
 ###Notice function
 Example:
 ````javascript
-var notice = require('format').notice;
+var notice = require('color-format').notice;
 notice('Hello world');
 ````
 ###Info function
 Example:
 ````javascript
-var info = require('format').info;
+var info = require('color-format').info;
 info('Hello world');
 ````
 
